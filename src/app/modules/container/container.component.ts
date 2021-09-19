@@ -59,6 +59,12 @@ initTableau(){
     }
   };
   
+  /*
+  Use the TableauViz to get access to Tableau Visualisation and specific constructs like active sheets, workbook as well as dashboard.
+  This also helps to subscribe listeners to specific forms of events that can be triggered using Tableau Dashboard Actions.
+  We add actions on the specific sheets and attribute. On Click or On Hover, we can then trigger an event that can be binded by the code and specific service is invoked to make 
+  a request to push the information to back end
+  */
   
-  this.tableauViz = new tableau,Viz(this.tabContainerDiv.nativeElement, vizUrl, options);
+  this.tableauViz = new tableau.Viz(this.tabContainerDiv.nativeElement, vizUrl, options);
   this.tableauViz.addEventListener(tableau.TableauEventName.MARKS_SELECTION, this.tableau.onMarksSelection.bin(this.teableau));
