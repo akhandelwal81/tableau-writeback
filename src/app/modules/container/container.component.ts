@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterContentInit,AfterViewInit} from '@angular/core';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
-import {MrkKeyPair,IMrkKeyPair } from 'src/app/modules/view-models/mrkkeypair.model';
+import {KeyPair,IMrkKeyPair } from 'src/app/modules/view-models/keypair.model';
 import {WritebackService} from '../services/writeback.service';
 
 import {ComplierMetadataResolver, debugOutputAstAsTypeScript } from '@angular/compiler';
@@ -67,4 +67,20 @@ initTableau(){
   */
   
   this.tableauViz = new tableau.Viz(this.tabContainerDiv.nativeElement, vizUrl, options);
-  this.tableauViz.addEventListener(tableau.TableauEventName.MARKS_SELECTION, this.tableau.onMarksSelection.bin(this.teableau));
+  this.tableauViz.addEventListener(tableau.TableauEventName.MARKS_SELECTION, this.tableau.onMarksSelection.bin(this.tableau));
+  this.tableauViz.addEventListener(tableau.TableauEventName.CUSTOM_VIEW_LOAD, this.tableau.onCVTLoad.bind(this.tableau));
+  this.tableauViz.addEventListener(tableau.TableauEventName.FILTER_CHANGE, this.tableau.OnFilter.bind(this.tableau));
+  
+}
+
+
+onShow() {
+  this.showConfirmSub.next();
+    let text:KeyPair = {
+      keyIdVal:1,
+      text: "text",
+    }
+    as KeyPair;
+}
+}
+
