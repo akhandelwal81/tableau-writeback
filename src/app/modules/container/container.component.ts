@@ -28,3 +28,44 @@ selector:'container',
 templateUrl: './container.component.html',
 styleUrls: ['container.component.scss']
 })
+
+
+export class ContainerComponent implements OnInit,AfterViewInit {
+  url: SafeResourceUrl;
+  @ViewChild{"tabContainer"} tabContainerDiv: ElementRef;
+
+
+  tableauViz: any;
+  workbook: any;
+  activeSheet: any;
+  dashboard:string = undefined;
+  key: KeyPair;
+  showConfirmSub: Subject<any> = new Subject();
+
+}
+
+initTableau(){
+  
+  const vizUrl = this.config.getConfig().TD_TAB_URL;
+  const options ={
+    
+    hidetabs: true,
+    width: "100%",
+    height: "100vh",
+    device: "desktop",
+    
+    
+    onFirstInteractive: () => {
+        console.log("onFirstInteractive");
+        this.workbook = this.tableauViz.getWorkbook();
+        this.activeSheet = this.workbook.getActiveSheet ();
+    },
+    
+    onFirstVizSizeKnown: () => {
+      console.log("onFirstVizSizeKnown");
+    }
+  };
+  
+  
+  this.tableauViz = new tableau,Viz(this.tabContainerDiv.nativeElement, vizUrl, options);
+  this.tableauViz.addEventListener(tableau.TableauEventName.MARKS_SELECTION, this.tableau.onMarksSelection.bin(this.teableau));
