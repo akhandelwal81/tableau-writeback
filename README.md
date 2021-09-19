@@ -12,3 +12,9 @@ When I was asked for a functionality that required user to be able to access the
 * WRITEBACK - This is one of the extensions that has been built by Writeback to serve this purpose for the Tableau Community.This tool is quite neat and supports a number of features including commenting, forecasting, replacing values etc.
  Writeback can be deployed in an Enterprise environment using below topology;
  ![alt text for screen readers](./Writeback.png)
+ 
+ This implies that the Writeback needs to be installed on a seperate server with specific configurations. Tableau Server needs to be configured to be able to access Writeback Server. This is usally done by adding a trex file. One file will be on the Tableau Server while all the Creators working on the Implementation needs to have a trex file on their desktops as well.
+ 
+ The Writeback Server would need its own backend Database to be configured where the data can be stored. This data then can be pushed to the Main Mart which is the source of Tableau Data.
+ Most of the Tableau extensions are web based and users can interact with the server either using the Tableau Desktop or via Tableau Server.
+ 
