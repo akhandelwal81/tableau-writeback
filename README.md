@@ -11,4 +11,4 @@ When I was asked for a functionality that required user to be able to access the
 ## Evaluations for different options
 * WRITEBACK - This is one of the extensions that has been built by Writeback to serve this purpose for the Tableau Community.This tool is quite neat and supports a number of features including commenting, forecasting, replacing values etc.
  Writeback can be deployed in an Enterprise environment using below topology;
- 
+ ![alt text for screen readers](./writeback.png)
