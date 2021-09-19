@@ -1,4 +1,4 @@
-# tableau-writeback
+# tableau-custom-writeback
 This explains a simple approach to implement a writeback functionality in Tableau 2020.1.
 There have been numerous use cases that involes requirements where the users would like to interact with the Active Dashboards and perform drill downs.
 Also, there are requirements to add comments and publish them to the user community.
